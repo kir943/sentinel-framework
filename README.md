@@ -427,6 +427,3 @@ into a single server-authoritative decision system:
 The goal is to detect suspicious conditions early and prevent unsafe transactions from progressing through the payment workflow.
 
 ---
-
-```
-```
