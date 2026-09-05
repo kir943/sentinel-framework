@@ -1,5 +1,10 @@
 
-# Sentinel
+# 🛡️ Sentinel
+Verify the user.
+Verify the session.
+Verify the transaction.
+
+Because trusting the transaction isn't enough — you need to verify it.
 
 ## Application-Integrated Transaction Integrity & AI Risk Framework
 
