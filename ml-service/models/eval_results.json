@@ -1,0 +1,88 @@
+{
+  "non_leaky": {
+    "label": "non_leaky_behavioral",
+    "features": [
+      "amount_log",
+      "hour_of_day",
+      "sender_txn_count",
+      "dest_txn_count",
+      "is_new_recipient",
+      "amount_vs_sender_avg",
+      "type_cash_out"
+    ],
+    "precision": 0.05087945483009485,
+    "recall": 0.8246268656716418,
+    "f1": 0.09584525977968601,
+    "roc_auc": 0.8988775971337116,
+    "avg_precision": 0.4702520071663313,
+    "confusion_matrix": [
+      [
+        349703,
+        61839
+      ],
+      [
+        705,
+        3315
+      ]
+    ],
+    "feature_importance": {
+      "amount_log": 0.18294411897659302,
+      "hour_of_day": 0.2522871792316437,
+      "sender_txn_count": 0.016816675662994385,
+      "dest_txn_count": 0.11637023836374283,
+      "is_new_recipient": 0.0,
+      "amount_vs_sender_avg": 0.11764367669820786,
+      "type_cash_out": 0.31393808126449585
+    }
+  },
+  "leaky": {
+    "label": "leaky_with_balance_features",
+    "features": [
+      "amount_log",
+      "hour_of_day",
+      "sender_txn_count",
+      "dest_txn_count",
+      "is_new_recipient",
+      "amount_vs_sender_avg",
+      "type_cash_out",
+      "errorBalanceOrig",
+      "errorBalanceDest",
+      "orig_drained_to_zero",
+      "oldbalanceOrg",
+      "newbalanceOrig",
+      "oldbalanceDest",
+      "newbalanceDest"
+    ],
+    "precision": 1.0,
+    "recall": 0.9995024875621891,
+    "f1": 0.9997511818860413,
+    "roc_auc": 0.9999931552176378,
+    "avg_precision": 0.9998135721751985,
+    "confusion_matrix": [
+      [
+        411542,
+        0
+      ],
+      [
+        2,
+        4018
+      ]
+    ],
+    "feature_importance": {
+      "amount_log": 0.017084920778870583,
+      "hour_of_day": 0.0019496713066473603,
+      "sender_txn_count": 0.0,
+      "dest_txn_count": 0.0034227583091706038,
+      "is_new_recipient": 0.0,
+      "amount_vs_sender_avg": 0.0015990862157195807,
+      "type_cash_out": 0.000931980146560818,
+      "errorBalanceOrig": 0.5171296000480652,
+      "errorBalanceDest": 0.002466614358127117,
+      "orig_drained_to_zero": 0.4289228618144989,
+      "oldbalanceOrg": 0.016902176663279533,
+      "newbalanceOrig": 0.0021975189447402954,
+      "oldbalanceDest": 0.004649136681109667,
+      "newbalanceDest": 0.002743538236245513
+    }
+  }
+}

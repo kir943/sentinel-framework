@@ -1,0 +1,244 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.976 0.014 88);
+  --foreground: oklch(0.26 0.015 55);
+  --card: oklch(0.99 0.008 90);
+  --card-foreground: oklch(0.26 0.015 55);
+  --popover: oklch(0.99 0.008 90);
+  --popover-foreground: oklch(0.26 0.015 55);
+  --primary: oklch(0.575 0.135 42);
+  --primary-foreground: oklch(0.985 0.01 90);
+  --secondary: oklch(0.945 0.019 84);
+  --secondary-foreground: oklch(0.3 0.02 55);
+  --muted: oklch(0.945 0.019 84);
+  --muted-foreground: oklch(0.51 0.024 60);
+  --accent: oklch(0.9 0.045 60);
+  --accent-foreground: oklch(0.3 0.03 45);
+  --destructive: oklch(0.53 0.16 25);
+  --destructive-foreground: oklch(0.985 0.01 90);
+  --border: oklch(0.885 0.02 78);
+  --input: oklch(0.885 0.02 78);
+  --ring: oklch(0.575 0.135 42);
+  --chart-1: oklch(0.575 0.135 42);
+  --chart-2: oklch(0.68 0.09 70);
+  --chart-3: oklch(0.5 0.05 55);
+  --chart-4: oklch(0.78 0.07 85);
+  --chart-5: oklch(0.62 0.11 30);
+  --sidebar: oklch(0.962 0.016 86);
+  --sidebar-foreground: oklch(0.26 0.015 55);
+  --sidebar-primary: oklch(0.575 0.135 42);
+  --sidebar-primary-foreground: oklch(0.985 0.01 90);
+  --sidebar-accent: oklch(0.9 0.045 60);
+  --sidebar-accent-foreground: oklch(0.3 0.03 45);
+  --sidebar-border: oklch(0.885 0.02 78);
+  --sidebar-ring: oklch(0.575 0.135 42);
+  --sentinel: oklch(0.58 0.14 142);
+  --sentinel-alert: oklch(0.55 0.18 35);
+  --sentinel-warning: oklch(0.72 0.15 75);
+}
+
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@theme inline {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes weave-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes weave-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@utility animate-rise {
+  animation: weave-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-slide {
+  animation: weave-slide 1.1s ease-in-out infinite;
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+@utility link-underline {
+  position: relative;
+  transition: color 0.25s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 0;
+    background: var(--primary);
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Sentinel animation keyframes */
+@keyframes sentinel-stroke {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sentinel-check-stroke {
+  0% {
+    stroke-dashoffset: 80;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes sentinel-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(46, 125, 50, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(46, 125, 50, 0.6));
+  }
+}
+
+@keyframes sentinel-alert-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(200, 98, 68, 0.4));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(200, 98, 68, 0.85));
+    transform: scale(1.04);
+  }
+}
+
+.sentinel-draw {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: sentinel-stroke 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sentinel-check {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: sentinel-check-stroke 0.5s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sentinel-glow {
+  animation: sentinel-glow-pulse 2.4s ease-in-out infinite;
+}
+
+.sentinel-alert-glow {
+  animation: sentinel-alert-pulse 0.85s ease-in-out infinite;
+}
+

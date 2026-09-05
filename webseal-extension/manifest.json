@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Sentinel WebSeal",
+  "version": "1.0.0",
+  "description": "Sentinel payment-integrity framework: DOM tamper detection layer for checkout flows.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Sentinel WebSeal"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:*/*",
+        "http://127.0.0.1:*/*"
+      ],
+      "js": ["content-script.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
