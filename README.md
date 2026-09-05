@@ -428,11 +428,5 @@ The goal is to detect suspicious conditions early and prevent unsafe transaction
 
 ---
 
-## Sentinel
-
-**Verify the user.
-Verify the session.
-Verify the transaction.**
-
 ```
 ```
